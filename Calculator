@@ -11,6 +11,7 @@ public class Calculator
 	    frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	    frame.setVisible(true);
 	    frame.setSize(250, 300);
+	    frame.setResizable(false);
 	}
 }
  
@@ -18,7 +19,7 @@ class CalculatorFrame extends JFrame
 {
    public CalculatorFrame()
    {
-      setTitle("Calculator");
+      setTitle("Rechner");
       CalculatorPanel panel = new CalculatorPanel();
       add(panel);
       pack();
@@ -88,19 +89,12 @@ class CalculatorPanel extends JPanel
          display.setText(display.getText() + input);
       }
    }
- 
-   /**
-    * Diese Aktion führt den mit der Taste verbundenen
-    * Befehl aus. 
-    */
+
    private class CommandAction implements ActionListener
    {
       public void actionPerformed(ActionEvent event)
       {
          String command = event.getActionCommand();
- 
-         // Füge den Präfix "-" an den String an wenn
-         // es sich um den ersten Befehl handelt (negative Zahl)
          if (start)
          {
             if (command.equals("-"))
@@ -113,18 +107,13 @@ class CalculatorPanel extends JPanel
          }
          else
          {
-            // Berechnung ausführen
             calculate(Double.parseDouble(display.getText()));
             lastCommand = command;
             start = true;
          }
       }
    }
- 
-   /**
-    * Führt die anstehenden Berechnungen aus.
-    * @param x der mit dem vorherigen Ergebnis zu berechnende Wert
-    */
+
    public void calculate(double x)
    {
       if (lastCommand.equals("+")) result += x;
