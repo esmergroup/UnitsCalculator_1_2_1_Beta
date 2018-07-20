@@ -5925,7 +5925,7 @@ public class MainFrame extends JFrame {
 		JButton btnSupport = new JButton("Support");
 		btnSupport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// Hier kommt die Verbindungsklasse :P
+				
 				JFrame support = new JFrame();
 				support.setVisible(true);
 				support.setTitle("Support");
